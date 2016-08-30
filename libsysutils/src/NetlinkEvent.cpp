@@ -646,6 +646,6 @@ const char *NetlinkEvent::findParam(const char *paramName) {
             return ++ptr;
     }
 
-    SLOGE("NetlinkEvent::FindParam(): Parameter '%s' not found", paramName);
+    //SLOGE("NetlinkEvent::FindParam(): Parameter '%s' not found", paramName);
     return NULL;
 }

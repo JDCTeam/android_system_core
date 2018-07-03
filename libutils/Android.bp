@@ -75,7 +75,7 @@ cc_library {
         "misc.cpp",
     ],
 
-    cflags: ["-Werror"],
+    cflags: ["-Werror","-Ofast"],
     include_dirs: ["external/safe-iop/include"],
     header_libs: [
         "libutils_headers",
@@ -90,7 +90,7 @@ cc_library {
 
     arch: {
         mips: {
-            cflags: ["-DALIGN_DOUBLE"],
+            cflags: ["-DALIGN_DOUBLE","-Ofast"],
         },
     },
 
@@ -102,7 +102,7 @@ cc_library {
                 "Trace.cpp",
             ],
 
-            cflags: ["-fvisibility=protected"],
+            cflags: ["-fvisibility=protected","-Ofast"],
 
             shared_libs: [
                 "libbacktrace",
@@ -117,7 +117,7 @@ cc_library {
         },
 
         host: {
-            cflags: ["-DLIBUTILS_NATIVE=1"],
+            cflags: ["-DLIBUTILS_NATIVE=1","-Ofast"],
 
             shared: {
                 enabled: false,
@@ -139,7 +139,7 @@ cc_library {
         },
 
         darwin: {
-            cflags: ["-Wno-unused-parameter"],
+            cflags: ["-Wno-unused-parameter","-Ofast"],
         },
 
         windows: {
@@ -147,6 +147,7 @@ cc_library {
                 // Under MinGW, ctype.h doesn't need multi-byte support
                 "-DMB_CUR_MAX=1",
                 "-Wno-unused-private-field",
+		"-Ofast",
             ],
 
             enabled: true,

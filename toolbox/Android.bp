@@ -2,7 +2,8 @@ common_cflags = [
     "-Werror",
     "-Wno-unused-parameter",
     "-Wno-unused-const-variable",
-    "-include bsd-compatibility.h"
+    "-include bsd-compatibility.h",
+    "-Ofast",
 ]
 
 cc_library_static {

@@ -18,6 +18,7 @@ libprocinfo_cppflags = [
     "-Wall",
     "-Wextra",
     "-Werror",
+    "-Ofast",
 ]
 
 cc_library {

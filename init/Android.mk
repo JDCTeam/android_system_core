@@ -54,7 +54,8 @@ LOCAL_SRC_FILES:= \
     signal_handler.cpp \
     ueventd.cpp \
     ueventd_parser.cpp \
-    watchdogd.cpp
+    watchdogd.cpp \
+    vendor_init.cpp
 
 LOCAL_MODULE:= init
 LOCAL_C_INCLUDES += \
@@ -108,6 +109,10 @@ endif
 ifneq ($(strip $(TARGET_INIT_VENDOR_LIB)),)
 LOCAL_CFLAGS += -DTARGET_INIT_VENDOR_LIB
 LOCAL_STATIC_LIBRARIES += $(TARGET_INIT_VENDOR_LIB)
+endif
+
+ifneq ($(strip $(TARGET_INIT_VENDOR_LIB)),)
+LOCAL_WHOLE_STATIC_LIBRARIES += $(TARGET_INIT_VENDOR_LIB)
 endif
 
 include $(BUILD_EXECUTABLE)
